@@ -39,6 +39,14 @@ pytest
 - Error handling is implemented to handle request exceptions and failures.
 - The test report will be generated after each test run, providing details on test outcomes and any failures encountered.
 
+##Challenges Handling
+- my main challenge was in the last test, I first wanted to iterate through all of the pokemons URL endpoints and only add the fire ones, from there i could start and add each fire type weight and name to a tuple i created. However it was a range between 1 and 10278 IDs.
+- The test at first took 8 minutes and failed, it was very problematic to debug.
+- Instead, I have decided to go through the pokemons in the fire type endpoint, from there I implemented two helper methods, which basically iterates through the fire type responses and forwards the entry of the url to the next method, which then cultivates the name and weight of said pokemons and returns it.
+- Then, the main test function calls both functions accordingly and appends it to the fire pokemon tuple.
+- From there, I sorted the tuple according to the weight in descending order, took the first 5 (which should be the Heaviest), then compared it to a hard coded tuple.
+- Both lists matched, Success!
+
 ## Test Report
 
 After running the tests, you can view the detailed test report by opening the `report.html` file located in the `target` directory.
